@@ -15,6 +15,8 @@ public class BaseController {
 	//http://localhost:8080/project「/」が呼ばれた際の処理
 	@GetMapping(value = "/")
     public String init() {
+		
+		//System.out.println(MessageUtil.getMessage(MessageIds.ECOM0002,"なんか"));
     	
         // WEB-INF/views下の、同名のjsp
         return "sample";

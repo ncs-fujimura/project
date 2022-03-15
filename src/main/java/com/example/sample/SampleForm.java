@@ -18,5 +18,6 @@ public class SampleForm extends BaseForm{
 	
 	private String text;
 	private String radio;
+	private String dataList;
 
 }

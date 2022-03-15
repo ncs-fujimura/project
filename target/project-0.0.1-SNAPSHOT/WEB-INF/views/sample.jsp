@@ -22,18 +22,6 @@
 				<input type="radio" name="radio" value="選択肢１" checked="checked">選択肢１
 				<input type="radio" name="radio" value="選択肢２" >選択肢２
 			</div>
-			<div>
-				例３：コンボボックス
-				<input type="text" name="dataList" list="dataList">
-				<datalist id="dataList">
-					<option value="選択肢1" label="1"></option>
-					<option value="選択肢2" label="2"></option>
-					<option value="選択肢3" label="3"></option>
-				</datalist>
-				<input type="radio" name="radio" value="選択肢１" checked="checked">手入力する
-				<input type="radio" name="radio" value="選択肢２" >手入力しない
-				<input type="text" name="手入力">
-			</div>
 			<input type="submit">
 		</form:form>
 		

@@ -26,6 +26,7 @@ public class SampleController extends BaseController{
 	@PostMapping
     public String doPost(@ModelAttribute("sampleForm") SampleForm form, Model model) {
     	
+		System.out.println("コンボボックスからの入力値：" + form.getDataList());
     	// form→DTOに変換
     	SampleDto inputDto = new SampleDto();
     	BeanUtils.copyProperties(form, inputDto);

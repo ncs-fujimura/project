@@ -18,5 +18,6 @@ public class SampleDto extends BaseDto{
 	
 	private String text;
 	private String radio;
+	private String dataList;
 
 }

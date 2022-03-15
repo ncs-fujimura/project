@@ -14,9 +14,32 @@
     			<groupId>org.apache.maven.plugins</groupId>
     			<artifactId>maven-war-plugin</artifactId>
     			<version>3.3.1</version>
+    			<configuration>
+					<failOnMissingWebXml>false</failOnMissingWebXml>
+					<webXml>${webxml.path}</webXml>
+                </configuration>
 			</plugin>
 		</plugins>
 	</build>
+	
+	    <!--環境ごとにかわる設定ファイルを切り替えます。-->
+    <profiles>
+        <profile>
+            <id>local</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <webxml.path>src/main/webapp/WEB-INF/config/local/web.xml</webxml.path>
+            </properties>
+        </profile>
+        <profile>
+            <id>remote</id>
+            <properties>
+				<webxml.path>src/main/webapp/WEB-INF/config/remote/web.xml</webxml.path>
+            </properties>
+        </profile>
+    </profiles>
 	
 	<properties>
     	<maven.compiler.source>11</maven.compiler.source>
@@ -73,6 +96,12 @@
 			<artifactId>spring-jdbc</artifactId>
 			<version>4.1.6.RELEASE</version>
 		</dependency>
+		
+		<dependency>
+			<groupId>javax.annotation</groupId>
+			<artifactId>javax.annotation-api</artifactId>
+		<version>1.3.2</version>
+</dependency>
 	</dependencies>
 
 </project>

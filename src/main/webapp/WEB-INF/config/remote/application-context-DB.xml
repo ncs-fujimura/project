@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- xsi:schemaLocationのxsdメジャーバージョンは、pom.xmlで指定したspring.versionに合わせること -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
+        http://www.springframework.org/schema/tx
+        http://www.springframework.org/schema/tx/spring-tx-4.2.xsd
+        http://mybatis.org/schema/mybatis-spring
+        http://mybatis.org/schema/mybatis-spring.xsd
+        ">
+
+	<!-- Data Source Bean Injection -->
+	<bean id="dataSource"
+		class="org.apache.tomcat.dbcp.dbcp2.BasicDataSource"
+		destroy-method="close">
+		<property name="driverClassName"
+			value="com.mysql.jdbc.Driver" />
+		<property name="url"
+			value="jdbc:mysql://localhost:3306/sample_db" />
+		<property name="username" value="ncs" />
+		<property name="password" value="ncs" />
+		<property name="defaultAutoCommit" value="false" />
+		<property name="maxIdle" value="5" />
+		<property name="minIdle" value="3" />
+		<property name="initialSize" value="5" />
+	</bean>
+
+	<!-- MyBatis3.x-Spring -->
+	<!--SqlSessionFactory Injection -->
+	<bean id="sqlSessionFactory"
+		class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+	
+
+</beans>
